@@ -46,7 +46,11 @@ function addOrUpdateRowInTable(prodRef){
 	  var newRow = eltTbody.insertRow(-1) ;
 	  newRow.setAttribute("id","r_"+prodRef);
 	  newRow.insertCell(0).innerHTML = "<input type='checkbox'></input>";
-	  //...
+	  newRow.insertCell(1).innerText = prod.ref;
+	  newRow.insertCell(2).innerText = prod.label;
+	  newRow.insertCell(3).innerText = prod.prix;
+	  newRow.insertCell(4).innerText = qte;
+	  newRow.insertCell(5).innerText = qte * prod.prix;
   }
 }
 
@@ -58,7 +62,9 @@ function deleteSelectedRowInTable(){
 		 var tRow = eltTbody.rows[i];
 		 var isSelected = tRow.cells[0].firstChild.checked;
 		 if(isSelected){
-			 //....
+			 var refProd = tRow.cells[1].innerText;
+			 delete mapSelProdQty[refProd];
+			 eltTbody.deleteRow(i);
 		 }
 	 }
 }
@@ -80,12 +86,14 @@ window.onload = function(){
 	});
 	
 	var eltBtnAdd = document.getElementById("btnAdd");
-	eltBtnAdd.addEventListener("...",function(evt){
+	eltBtnAdd.addEventListener("click",function(evt){
 		var eltQte = document.getElementById("qte");
 		mapSelProdQty[selectedProdRef]=Number(eltQte.value);
 		addOrUpdateRowInTable(selectedProdRef);
 	});
 	
 	var eltBtnSuppr = document.getElementById("btnSuppr");
-	//....
+	eltBtnSuppr.addEventListener("click",function(evt){
+		deleteSelectedRowInTable();
+    });
 }
