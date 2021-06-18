@@ -1,0 +1,136 @@
+/* _common.scss = _base + _layout + _component */
+/* _base.scss = variables + mixins , @import in styles.scss */
+.bg-inv-primary {
+  background-color: #ffffff;
+}
+
+.bg-primary {
+  background-color: #8a1d1d;
+}
+
+.bg-hl-primary {
+  background-color: #f07026;
+}
+
+.txt-primary {
+  color: #c91717;
+}
+
+.txt-hl-primary {
+  color: #f07026;
+}
+
+.txt-inv-primary {
+  color: #ffffff;
+}
+
+.txt-inv-hl-primary {
+  color: #89f574;
+}
+
+.bg-inv-secondary {
+  background-color: #ffffff;
+}
+
+.bg-secondary {
+  background-color: #c52814;
+}
+
+.bg-hl-secondary {
+  background-color: #af056e;
+}
+
+.txt-secondary {
+  color: #dd0f0f;
+}
+
+.txt-hl-secondary {
+  color: #af056e;
+}
+
+.txt-inv-secondary {
+  color: #ffffff;
+}
+
+.txt-inv-hl-secondary {
+  color: #89f574;
+}
+
+.bg-inv-secondary2 {
+  background-color: #ffffff;
+}
+
+.bg-secondary2 {
+  background-color: #f50a0a;
+}
+
+.bg-hl-secondary2 {
+  background-color: #3c5575;
+}
+
+.txt-secondary2 {
+  color: #d63215;
+}
+
+.txt-hl-secondary2 {
+  color: #3c5575;
+}
+
+.txt-inv-secondary2 {
+  color: #ffffff;
+}
+
+.txt-inv-hl-secondary2 {
+  color: #fcf95e;
+}
+
+/* _layout.scss = layout, grid, container , @import in styles.scss */
+/* @angular/flex-layout is already used in this project , this file is empty */
+/* _components.scss = navbar , cards, ... , @import in styles.scss */
+.center {
+  text-align: center;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+/* Add some padding inside the card body */
+.card > .body {
+  padding: 2px 16px;
+}
+
+input[type=button] {
+  color: #ffffff;
+  background-color: #8a1d1d;
+}
+
+input[type=button].highlight {
+  color: #ffffff;
+  background-color: #f07026;
+}
+
+input[type=button]:hover {
+  color: #89f574;
+  background-color: #8a1d1d;
+}
+
+input[type=button].highlight:hover {
+  color: #89f574;
+  background-color: #f07026;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/*# sourceMappingURL=styles.css.map */
