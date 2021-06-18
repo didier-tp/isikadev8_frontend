@@ -1,9 +1,9 @@
 var express = require('express');
 var fileUpload  = require('express-fileupload');
-var deviseApiRoutes = require('./devise-api-routes_v1_sans_mongo');
+//var deviseApiRoutes = require('./devise-api-routes_v1_sans_mongo');
 //var deviseApiRoutes = require('./devise-api-routes_v2_avec_mongo');
 //var deviseApiRoutes = require('./devise-api-routes_v3_avec_sqlite');
-//var deviseApiRoutes = require('./devise-api-routes_v4_avec_mongoose');
+var deviseApiRoutes = require('./devise-api-routes_v4_avec_mongoose');
 //var produitApiRoutes = require('./produit-api-routes_memory');
 //var produitApiRoutes = require('./produit-api-routes_sqlite');
 var produitApiRoutes = require('./produit-api-routes_mongoose');
@@ -21,6 +21,7 @@ app.use(fileUpload({
 }));
 
 // CORS enabled with express/node-js :
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     //ou avec "www.xyz.com" à la place de "*" en production
