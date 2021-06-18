@@ -43,9 +43,6 @@ function postNewDeviseWithAjax(nouvelleDevise){
                         nouvelleDevise AU FORMAT JSON ,  
                         afterPostNewDeviseWithAjaxCallback);*/
     //*******************************************************
-	makeAjaxPostRequest("../devise-api/private/role-admin/devise" ,
-        JSON.stringify(nouvelleDevise) ,  
-        afterPostNewDeviseWithAjaxCallback);
 }
 
 function afterPostNewDeviseWithAjaxCallback(texteReponse){
@@ -73,7 +70,6 @@ function deleteOldDeviseWithAjax(oldDevise){
     //************ A FAIRE EN TP ***************************
     // var deleteUrl = URL qui va bien avec le bon code devise a supprimer à la fin
     //***************************************
-	let deleteUrl="../devise-api/private/role-admin/devise/"+oldDevise.code;
     makeAjaxDeleteRequest(deleteUrl , afterDeleteOldDeviseWithAjaxCallback , displayMessage);
 }
 
