@@ -1,6 +1,23 @@
+@import "_bases"; 
+
 @import "common.css";
 
-$couleurPref : orange;
+h3 {
+    @include media-max('sm') {
+        font-size:80%;    color:black;
+    }
+    @include media-min('sm') {
+        font-size:100%;    color:green;
+    }
+    @include media-min('md') {
+        font-size:130%;    color:blue;
+    }
+    @include media-min('lg') {
+        font-size:160%;    color:red;
+    }
+}
+
+$couleurPref : red;
 
 .enEvidence {
   font-weight : bold;

@@ -1,7 +1,35 @@
+/*alternative names for media-query mixins :
+media-min or respond-below or media-breakpoint-down
+, media-max or respond-above ,  media-between or respond-between */
 @import "common.css";
+@media screen and (max-width: 575px) {
+  h3 {
+    font-size: 80%;
+    color: black;
+  }
+}
+@media screen and (min-width: 576px) {
+  h3 {
+    font-size: 100%;
+    color: green;
+  }
+}
+@media screen and (min-width: 768px) {
+  h3 {
+    font-size: 130%;
+    color: blue;
+  }
+}
+@media screen and (min-width: 992px) {
+  h3 {
+    font-size: 160%;
+    color: red;
+  }
+}
+
 .enEvidence {
   font-weight: bold;
-  color: orange !important;
+  color: red !important;
 }
 
 p {
@@ -114,7 +142,7 @@ img {
 
 .noirEtblanc {
   filter: grayscale(100%);
-  transition: 2.3s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 
 .noirEtblanc:hover {
@@ -123,7 +151,7 @@ img {
 
 .tournerSurSoiMeme:hover {
   transform: rotate(360deg);
-  transition: all 2.5s ease;
+  transition: all 0.5s ease;
 }
 
 @keyframes flash-anim {
@@ -144,7 +172,7 @@ img {
   }
 }
 .myflash:hover {
-  animation: flash-anim 3s infinite;
+  animation: flash-anim 3s;
 }
 
 @keyframes rotation-anim {
