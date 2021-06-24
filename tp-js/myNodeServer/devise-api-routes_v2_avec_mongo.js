@@ -54,12 +54,27 @@ apiRouter.route('/devise-api/public/devise')
 
 //exemple URL: http://localhost:8282/devise-api/public/convert?src=EUR&target=USD&amount=200
 apiRouter.route('/devise-api/public/convert')
-.get( function(req , res  , next ) {
+.get( /* NB: la version "C" necessite le mot clef "async" devant la fonction */
+     async function(req , res  , next ) {
 	var src = req.query.src;
 	var target = req.query.target;
 	var amount = Number(req.query.amount);
-    let deviseSource;
+ 
+   //Code principal de la version "C" avec async/await pour appeler dao/Promise:
+   try{
+     let deviseSrc = await  deviseDaoMongo.findDeviseByCode(src);
+	 let deviseTarget = await  deviseDaoMongo.findDeviseByCode(target);
+	 var convertedAmount = amount * deviseTarget.change / deviseSrc.change;					
+	 //var convResponse = { src : src , target : target, amount : amount , convertedAmount  :convertedAmount };
+	 var convResponse = { src , target , amount , convertedAmount };
+	 res.send(convResponse);
+   } catch(ex){
+	    res.status(404).send({ erreur : ex});
+   } 
+
+   /*
 	//Version B (avec promesse )
+	let deviseSource;
 	deviseDaoMongo.findDeviseByCode(src)
 	.then( (deviseSrc)=>{ deviseSource = deviseSrc ; return deviseDaoMongo.findDeviseByCode(target)})
 	.then( (deviseTarget)=>{ 
@@ -69,6 +84,7 @@ apiRouter.route('/devise-api/public/convert')
 		res.send(convResponse);
 	} )
 	.catch( (err) =>{ res.status(404).send({ error : err}); })
+    */
 
 	/*
 	//Version A (sans promesse et callbacks imbriquées)
