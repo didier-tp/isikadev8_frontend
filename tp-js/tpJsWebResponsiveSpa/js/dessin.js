@@ -22,7 +22,7 @@ function clear_canvas(){
 		//...
 		//************************************************
 		var ctx = myCanvas.getContext("2d");
-		ctx.clearRect (0,0,myCanvas.width,myCanvas.height )
+		ctx.clearRect (0,0,myCanvas.width,myCanvas.height );
 	}
 	
 function set_and_log_coords_xC_yC(event){
@@ -62,8 +62,7 @@ function log_coords_and_drawFig(event){
 		   //dessiner une line du point (x,y) vers le point (xC,yC)
 		    //...via ctx.moveTo(,) et ctx.lineTo(,)
 			//************************************************
-			ctx.moveTo(x1,y1) 
-		    ctx.lineTo(x2,y2)
+			ctx.moveTo(x1,y1); ctx.lineTo(x2,y2);
 			break;
 		case "rect":	
 		    //***********A FAIRE EN TP **********************
@@ -71,7 +70,7 @@ function log_coords_and_drawFig(event){
 			//et ayant comme largeur x2-x1  et comme hauteur y2-y1
 		    //...via ctx.rect(x,y,l,h)
 			//************************************************
-			ctx.rect(x1,y1,x2-x1,y2-y1)
+			ctx.rect(x1,y1,x2-x1,y2-y1);
 			if(!empty) ctx.fill();
 			break;
 		case "cercle":	

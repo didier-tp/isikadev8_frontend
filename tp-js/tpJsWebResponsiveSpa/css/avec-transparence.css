@@ -9,7 +9,7 @@ si coeff alpha proche de 0 très transparent.
 si coeff alpha proche de 1 très opaque.
 */
 .degradeDeBleu {
-  background: linear-gradient(to bottom right, rgba(0, 0, 255, 0.9), rgba(255, 255, 255, 0.9));
+  background: linear-gradient(to bottom right, rgba(255, 0, 0, 0.9), rgba(255, 255, 255, 0.9));
   box-shadow: 4px 4px grey;
 }
 
@@ -25,7 +25,7 @@ si coeff alpha proche de 1 très opaque.
 
 .overImage2 {
   background-color: #000000;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/pont.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../images/pont.jpg");
   background-position: center;
   background-size: cover;
   color: #ffffff;

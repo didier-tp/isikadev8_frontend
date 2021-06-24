@@ -75,7 +75,7 @@ thead th {
 
 .small-zoom {
   transform: scale(0.98);
-  transition: 0.6s;
+  transition: scale 1s;
 }
 
 .small-zoom:hover {
@@ -142,7 +142,7 @@ img {
 
 .noirEtblanc {
   filter: grayscale(100%);
-  transition: 0.3s ease-in-out;
+  transition:  1s ease-in-out;
 }
 
 .noirEtblanc:hover {
