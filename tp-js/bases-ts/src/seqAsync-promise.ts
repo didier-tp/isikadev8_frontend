@@ -50,17 +50,18 @@ export class MyAsyncSequence{
 
 
     static retreive_account_and_owner(accountNumber : number) : void{
-       let delay=1500; //ms
+       let delay=3000; //ms
         //avec enchainement de "Promise":
         MyAsyncSequence.getAccountByNumAfterDelay(accountNumber,delay)
         .then( (account)=>{ console.log("account:" + JSON.stringify(account));
-                             return MyAsyncSequence.getUserByIdAfterDelay(account.ownerId,delay);})
+                             return MyAsyncSequence.getUserByIdAfterDelay(account.ownerId,delay);},
+                             (err)=>{console.log("aff err account:" + err);})
         .then( (user)=> { console.log("user (owner of account):" + JSON.stringify(user));  })
-        .catch((err)=>{console.log(err);});
+        .catch((err)=>{console.log("aff commun:" + err);});
     }
 
 }
 
 //petit test:
-//MyAsyncSequence.retreive_account_and_owner(0);
+MyAsyncSequence.retreive_account_and_owner(0);
 MyAsyncSequence.retreive_account_and_owner(8);

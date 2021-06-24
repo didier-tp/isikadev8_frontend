@@ -58,7 +58,7 @@ export class MyAsyncSequence{
           const user = await  MyAsyncSequence.getUserByIdAfterDelay(account.ownerId,delay);
           console.log("user (owner of account):" + JSON.stringify(user));
         }catch(err){
-          console.log(err);
+          console.log("apres try/catch: " + err);
         }
     }
 
@@ -68,3 +68,4 @@ export class MyAsyncSequence{
 MyAsyncSequence.retreive_account_and_owner(0);
 
 MyAsyncSequence.retreive_account_and_owner(8);
+console.log("suite immédiate sans attente...")

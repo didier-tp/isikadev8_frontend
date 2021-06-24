@@ -57,7 +57,7 @@ export class MyAsyncSequence{
 
 
     static retreive_account_and_owner(accountNumber : number){
-        let delay=1500; //ms
+        let delay=5000; //ms
         //utilisation chaînée avec callbacks imbriquées:
         MyAsyncSequence.getAccountByNumAfterDelayWithCb(accountNumber,delay,
              (account) =>{

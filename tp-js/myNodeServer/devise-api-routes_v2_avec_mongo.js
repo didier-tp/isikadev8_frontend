@@ -51,6 +51,28 @@ apiRouter.route('/devise-api/public/devise')
 	});//end of genericFindList()
 });
 
+//exemple URL: http://localhost:8282/devise-api/public/convert?src=EUR&target=USD&amount=200
+apiRouter.route('/devise-api/public/convert')
+.get( function(req , res  , next ) {
+	var src = req.query.src;
+	var target = req.query.target;
+	var amount = Number(req.query.amount);
+
+	myGenericMongoClient.genericFindOne('devises',{ '_id' : src },
+		function(err,deviseSrc){
+			
+			myGenericMongoClient.genericFindOne('devises',{ '_id' : target },
+		          function(err,deviseTarget){
+					var convertedAmount = amount * deviseTarget.change / deviseSrc.change;					
+		            //var convResponse = { src : src , target : target, amount : amount , convertedAmount  :convertedAmount };
+					var convResponse = { src , target , amount , convertedAmount };
+					res.send(convResponse);
+					//...
+				});
+            //...
+		});
+});
+
 // http://localhost:8282/devise-api/private/role-admin/devise en mode post
 // avec { "code" : "mxy" , "nom" : "monnaieXy" , "change" : 123 } dans req.body
 apiRouter.route('/devise-api/private/role-admin/devise')

@@ -57,20 +57,20 @@ var MyAsyncSequence = /** @class */ (function () {
         });
     };
     MyAsyncSequence.retreive_account_and_owner = function (accountNumber) {
-        var delay = 1500; //ms
+        var delay = 3000; //ms
         //avec enchainement de "Promise":
         MyAsyncSequence.getAccountByNumAfterDelay(accountNumber, delay)
             .then(function (account) {
             console.log("account:" + JSON.stringify(account));
             return MyAsyncSequence.getUserByIdAfterDelay(account.ownerId, delay);
-        })
+        }, function (err) { console.log("aff err account:" + err); })
             .then(function (user) { console.log("user (owner of account):" + JSON.stringify(user)); })
-            .catch(function (err) { console.log(err); });
+            .catch(function (err) { console.log("aff commun:" + err); });
     };
     return MyAsyncSequence;
 }());
 exports.MyAsyncSequence = MyAsyncSequence;
 //petit test:
-//MyAsyncSequence.retreive_account_and_owner(0);
+MyAsyncSequence.retreive_account_and_owner(0);
 MyAsyncSequence.retreive_account_and_owner(8);
 //# sourceMappingURL=seqAsync-promise.js.map

@@ -5,9 +5,9 @@ export interface IPerson {
 }
 
 export class Personne{
-   
+
     constructor(public numero:number|undefined = undefined, 
-                public  prenom:string ="?" ,
+                public prenom :string ="?" ,
                 public  nom:string ="?" , 
                 private _age : number = 0){  
     }
@@ -21,7 +21,6 @@ export class Personne{
              this._age=a;
         else throw "age negatif invalide"
     }
-
     
 
     incrementerAge():void {

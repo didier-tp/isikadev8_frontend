@@ -53,7 +53,7 @@ var MyAsyncSequence = /** @class */ (function () {
             setTimeout(function () { cbWithError("invalid user id : " + id); }, delay);
     };
     MyAsyncSequence.retreive_account_and_owner = function (accountNumber) {
-        var delay = 1500; //ms
+        var delay = 5000; //ms
         //utilisation chaînée avec callbacks imbriquées:
         MyAsyncSequence.getAccountByNumAfterDelayWithCb(accountNumber, delay, function (account) {
             console.log("account:" + JSON.stringify(account));

@@ -113,7 +113,7 @@ var MyAsyncSequence = /** @class */ (function () {
                         return [3 /*break*/, 5];
                     case 4:
                         err_1 = _a.sent();
-                        console.log(err_1);
+                        console.log("apres try/catch: " + err_1);
                         return [3 /*break*/, 5];
                     case 5: return [2 /*return*/];
                 }
@@ -126,4 +126,5 @@ exports.MyAsyncSequence = MyAsyncSequence;
 //petit test:
 MyAsyncSequence.retreive_account_and_owner(0);
 MyAsyncSequence.retreive_account_and_owner(8);
+console.log("suite immédiate sans attente...");
 //# sourceMappingURL=seqAsync-await.js.map

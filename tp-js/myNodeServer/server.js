@@ -1,12 +1,12 @@
 var express = require('express');
 var fileUpload  = require('express-fileupload');
 //var deviseApiRoutes = require('./devise-api-routes_v1_sans_mongo');
-//var deviseApiRoutes = require('./devise-api-routes_v2_avec_mongo');
+var deviseApiRoutes = require('./devise-api-routes_v2_avec_mongo');
 //var deviseApiRoutes = require('./devise-api-routes_v3_avec_sqlite');
-var deviseApiRoutes = require('./devise-api-routes_v4_avec_mongoose');
-//var produitApiRoutes = require('./produit-api-routes_memory');
+//var deviseApiRoutes = require('./devise-api-routes_v4_avec_mongoose');
+var produitApiRoutes = require('./produit-api-routes_memory');
 //var produitApiRoutes = require('./produit-api-routes_sqlite');
-var produitApiRoutes = require('./produit-api-routes_mongoose');
+//var produitApiRoutes = require('./produit-api-routes_mongoose');
 var uploadApiRoutes = require('./upload-api-routes');
 //var bodyParser = require('body-parser'); //in old express version
 var app = express();

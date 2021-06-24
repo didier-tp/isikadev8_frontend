@@ -12,7 +12,7 @@ else {
 }
 p1.nom = "toto";
 try {
-    p1.age = -30;
+    p1.age = -30; //appel automatique à set age(-30)
 }
 catch (e) {
     console.log("exception normale:" + e);
