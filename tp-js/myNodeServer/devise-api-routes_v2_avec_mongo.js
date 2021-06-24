@@ -2,6 +2,7 @@ var express = require('express');
 const apiRouter = express.Router();
 
 var myGenericMongoClient = require('./my_generic_mongo_client');
+var deviseDaoMongo = require('./devise-dao-mongo');
 
 function replace_mongoId_byCode(devise){
 	devise.code = devise._id;
@@ -57,7 +58,20 @@ apiRouter.route('/devise-api/public/convert')
 	var src = req.query.src;
 	var target = req.query.target;
 	var amount = Number(req.query.amount);
+    let deviseSource;
+	//Version B (avec promesse )
+	deviseDaoMongo.findDeviseByCode(src)
+	.then( (deviseSrc)=>{ deviseSource = deviseSrc ; return deviseDaoMongo.findDeviseByCode(target)})
+	.then( (deviseTarget)=>{ 
+		var convertedAmount = amount * deviseTarget.change / deviseSource.change;					
+		//var convResponse = { src : src , target : target, amount : amount , convertedAmount  :convertedAmount };
+		var convResponse = { src , target , amount , convertedAmount };
+		res.send(convResponse);
+	} )
+	.catch( (err) =>{ res.status(404).send({ error : err}); })
 
+	/*
+	//Version A (sans promesse et callbacks imbriquées)
 	myGenericMongoClient.genericFindOne('devises',{ '_id' : src },
 		function(err,deviseSrc){
 			
@@ -71,6 +85,7 @@ apiRouter.route('/devise-api/public/convert')
 				});
             //...
 		});
+	*/
 });
 
 // http://localhost:8282/devise-api/private/role-admin/devise en mode post
