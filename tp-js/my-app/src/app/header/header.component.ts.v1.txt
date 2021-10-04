@@ -1,0 +1,38 @@
+import { Component, Input, OnInit } from '@angular/core';
+import { MenuDefinition } from 'src/bs-util/data/MenuDefinition';
+import { PreferencesService } from '../common/service/preferences.service.ts.v1';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
+})
+export class HeaderComponent implements OnInit {
+
+  @Input()
+  public titre : string = "titre_par_defaut";
+
+  myMenuDefs : MenuDefinition[] = [
+    { label : "Pour admin" , 
+      children : [
+        { label : "login" , path : "ngr-login" } ,
+        { label : "admin-devise" , path : "ngr-admin-devise" } ,
+        { divider : true },
+        { label : "welcome" , path : "ngr-welcome" },
+      ]
+    },
+    { label : "basic" , path : "ngr-basic" } , 
+    { label : "conversion" , path : "ngr-conversion" } ,
+    { label : "welcome" , path : "ngr-welcome" }
+    ];
+ 
+  constructor(public preferencesService : PreferencesService) { 
+      console.log("dans constructor de HeaderComponent , titre="+this.titre)
+  }
+
+  //ngOnInit() ressemble à @PostConstruct de java
+  ngOnInit(): void {
+    console.log("dans ngOnInit de HeaderComponent , titre="+this.titre)
+  }
+
+}

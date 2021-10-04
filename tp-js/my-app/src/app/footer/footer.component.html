@@ -1,0 +1,16 @@
+<!--
+<p class="piedPage">footer - {{today | date:"dd/MM/yyyy"}} - couleurFondPreferee:
+  <select [(ngModel)]="preferencesService.couleurFondPreferee" >
+      <option *ngFor="let c of listeCouleurs" [ngValue]="c">{{c}}</option>
+  </select>
+</p>
+-->
+
+
+<p class="piedPage">footer - 
+  couleurFondPreferee:
+    <select [(ngModel)]="couleurFondPrefereeLocale"
+        (ngModelChange)="onCouleurFondPrefereeLocaleChange()" >
+        <option *ngFor="let c of listeCouleurs" [ngValue]="c">{{c}}</option>
+    </select>
+</p>
